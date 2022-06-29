@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 19ea2b3865f13464a958c9f92cfbab28
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pixeboy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7fb0d852ae71dbf45be7787461357680, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
