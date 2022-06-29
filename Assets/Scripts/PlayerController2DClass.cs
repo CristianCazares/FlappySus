@@ -45,4 +45,4 @@ public class PlayerController2DClass : MonoBehaviour
         _jump = false;
         _rb.gravityScale = _heaviness;
     }
-    }
+}

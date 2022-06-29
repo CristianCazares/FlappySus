@@ -6,7 +6,8 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] GameObject _obstaclePrefab;
     [SerializeField] float _rate;
-
+    [SerializeField] float _lowestYPosition;
+    [SerializeField] float _highestYPosition;
     bool _started;
 
     // Update is called once per frame
@@ -26,6 +27,10 @@ public class ObstacleSpawner : MonoBehaviour
         while (true)
         {
             GameObject obstacle = Instantiate(_obstaclePrefab);
+            obstacle.transform.position = new Vector2(
+                obstacle.transform.position.x,
+                Random.Range(_lowestYPosition, _highestYPosition)
+            );
             yield return new WaitForSeconds(_rate);
         }
     }
