@@ -20,10 +20,10 @@ public class PlayerController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             _jump = true;
-            if(_started == false)
+            if (_started == false)
             {
                 _animator.SetBool("isRunning", true);
                 _started = true;
@@ -34,56 +34,15 @@ public class PlayerController2D : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_jump == true) Jump();   
-        RotationAnimDown();
+        if (_jump == true) Jump();
     }
 
     void Jump()
     {
-        RotationAnim();
         _rb.gravityScale = 1;
         _rb.AddForce(-_rb.velocity, ForceMode2D.Impulse);
         _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         _jump = false;
         _rb.gravityScale = _heaviness;
-    }
-
-    [SerializeField] Vector3 _rotationUp = new Vector3(0, 0, 60);
-    [SerializeField] float _rotationUpSpeed = 1;
-    void RotationAnim()
-    {
-        transform.rotation = Quaternion.Euler(
-            new Vector3(
-                transform.rotation.eulerAngles.x,
-                transform.rotation.eulerAngles.y,
-                _rotationUp.z
-        ));
-    }
-
-    [SerializeField] string state = "";
-    [SerializeField] float rotation = 0;
-    void RotationAnimDown()
-    {
-
-        if (_rb.velocity.y <= 0)
-        {
-            rotation = transform.rotation.eulerAngles.z;
-            if(
-                !(transform.rotation.eulerAngles.z >= _rotationUp.z + 10 && transform.rotation.eulerAngles.z < 270)
-                )
-            {
-                transform.Rotate(
-                    new Vector3(
-                        transform.rotation.eulerAngles.x,
-                        transform.rotation.eulerAngles.y,
-                        _rb.velocity.y
-                ));
-                state = "under";
-            }
-            else
-            {
-                state = "over";
-            }
-        }
     }
 }
