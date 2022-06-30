@@ -82,8 +82,7 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "600px";
-        canvas.style.height = "800px";
+        canvas.style.height = "80vh";
       }
       loadingBar.style.display = "block";
 
@@ -95,7 +94,8 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
+            const fulls = unityInstance.SetFullscreen(1);
+            console.log(fulls);
           };
         }).catch((message) => {
           alert(message);
