@@ -13,7 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!_started && Input.GetKeyDown(KeyCode.Space))
+        if(!_started && Input.GetButtonDown("Jump"))
         {
             StartCoroutine(Spawn());
             _started = true;
