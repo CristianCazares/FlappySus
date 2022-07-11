@@ -9,6 +9,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] TextMeshProUGUI _textScore;
     [SerializeField] PlayerController2D _playerController;
     [SerializeField] Animator _animator;
+    [SerializeField] GameObject _restartButton;
 
     public bool _gameOver;
 
@@ -31,6 +32,7 @@ public class PlayerScore : MonoBehaviour
     {
         _playerController.enabled = false;
         _animator.enabled = false;
+        _restartButton.SetActive(true);
         _gameOver = true;
     }
 }
