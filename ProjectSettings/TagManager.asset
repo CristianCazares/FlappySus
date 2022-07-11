@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Unspawner
   - ScoreBox
+  - Obstacle
   layers:
   - Default
   - TransparentFX

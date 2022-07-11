@@ -8,6 +8,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] int _score;
     [SerializeField] TextMeshProUGUI _textScore;
     [SerializeField] PlayerController2D _playerController;
+    [SerializeField] Animator _animator;
 
     public bool _gameOver;
 
@@ -29,6 +30,7 @@ public class PlayerScore : MonoBehaviour
     void GameOver()
     {
         _playerController.enabled = false;
+        _animator.enabled = false;
         _gameOver = true;
     }
 }

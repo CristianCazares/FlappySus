@@ -24,6 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (_playerScore._gameOver)
         {
             _obstacleSpeed = 0;
+            Destroy(gameObject);
         }
 
     }
