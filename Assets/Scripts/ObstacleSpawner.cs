@@ -5,9 +5,11 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] GameObject _obstaclePrefab;
+    [SerializeField] public float _obstacleSpeed = 5;
     [SerializeField] float _rate;
     [SerializeField] float _lowestYPosition;
     [SerializeField] float _highestYPosition;
+    [SerializeField] PlayerScore _playerScore;
     bool _started;
 
     // Update is called once per frame
@@ -18,7 +20,12 @@ public class ObstacleSpawner : MonoBehaviour
             StartCoroutine(Spawn());
             _started = true;
         }
-        
+
+        if (_playerScore._gameOver)
+        {
+            _obstacleSpeed = 0;
+        }
+
     }
 
     IEnumerator Spawn()

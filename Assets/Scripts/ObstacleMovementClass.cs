@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class ObstacleMovementClass : MonoBehaviour
 {
-    [SerializeField] float _speed = 5;
+    [SerializeField] GameObject _spawner;
+    [SerializeField] GameObject _scoreBox;
 
-    // Update is called once per frame
+    private float _speed;
+
+
+    void Start()
+    {
+        _spawner = GameObject.Find("Spawner");
+    }
+
     void Update()
     {
+        _speed = _spawner.GetComponent<ObstacleSpawner>()._obstacleSpeed;
+
         transform.position += Vector3.left * Time.deltaTime * _speed;
     }
 
